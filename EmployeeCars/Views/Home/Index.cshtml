@@ -1,0 +1,39 @@
+﻿@model IEnumerable<EmployeeCars.Models.Employee>
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    Layout = null;
+
+}
+
+<html>
+<head>
+    <title>@ViewData["Title"]</title>
+
+</head>
+<body>
+    <h1>Страница учета сотрудников</h1>
+    <div>
+        <p>Информация о сотрудниках и их автомобилей</p>
+        <hr>
+        <a asp-action="RegForm">Открыть форму регистрации</a>
+    </div>
+    <div>
+        <h2>Сотрудники подавшие данные</h2>
+        <table class="table" border="1">
+            <tr><td>Имя</td><td>Фамилия</td><td>Звание</td><td>Телефон</td><td>Автомобиль</td><td>Государственный знак</td></tr>
+            @foreach (var item in Model)
+            {
+                <tr><td>@item.FirstName</td><td>@item.LastName</td><td>@item.Zvanie</td><td>@item.Phone</td><td>@item.Auto</td><td>@item.GosZnak</td></tr>
+            }
+
+        </table>
+            
+    </div>
+
+
+
+</body>
+
+
+
+</html>
